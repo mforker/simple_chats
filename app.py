@@ -3,11 +3,13 @@ import streamlit as st
 import google.generativeai as genai
 import os
 
+st.set_page_config(layout="wide")
 # load_dotenv()
 
 # api = os.getenv("GEMINI_API_KEY")
 api = st.secrets['GEMINI_API_KEY']
 genai.configure(api_key=api)
+
 
 # func to load gemini model
 model = genai.GenerativeModel('gemini-1.5-pro-latest')
