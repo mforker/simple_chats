@@ -5,11 +5,12 @@ import os
 
 load_dotenv()
 
-api = os.getenv("GEMINI_API_KEY")
+# api = os.getenv("GEMINI_API_KEY")
+api = st.secrets['GEMINI_API_KEY']
 genai.configure(api_key=api)
 
 # func to load gemini model
-model = genai.GenerativeModel('gemini-1.5-flash')
+model = genai.GenerativeModel('gemini-1.5-pro-latest')
 chat = model.start_chat(history=[])
 
 def get_response(query):
